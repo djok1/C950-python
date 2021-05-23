@@ -7,5 +7,6 @@ class package:
         self.Zip = None
         self.DeliveryDeadline = None
         self.SpecialNotes = None
+        self.status = None
     def _print(self):
         print(self.id, end='')
