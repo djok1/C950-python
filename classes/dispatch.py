@@ -1,6 +1,7 @@
 #import classes.truck
 from classes.package import package
 from classes.hashTable import hashTbl
+from collections import defaultdict
 import csv
 class dispatch:
     #assigment stratigy find furthest location from hub as farlocation and location fartest from farlocation as otherlocation then assgine trucks based off of 
@@ -35,6 +36,7 @@ class dispatch:
     
     def loadPackages(self):  
         packagelist = []
+        addressDic = defaultdict(list)
         with open('WGUPSPackageFile.csv', newline='') as csvfile:
             packagereader = csv.reader(csvfile, delimiter=',', quotechar='|')
             for row in packagereader:
@@ -44,6 +46,7 @@ class dispatch:
         packageTable = hashTbl(len(packagelist))
         packageTable = hashTbl(len(packagelist))
         for row in packagelist:
+            addressDic[row[1] + " " + row[4]].append(int(row[0]))
             tempPackage = package()
             tempPackage.id = int(row[0])
             tempPackage.address = row[1]
@@ -54,6 +57,7 @@ class dispatch:
             tempPackage.SpecialNotes = row[7]
             packageTable.add(tempPackage)
         self.packageTable = packageTable
+        self.addressDic = addressDic
     
     def getDistance(self,startLocation,endLocation):
         return self.Distancelist[startLocation][endLocation]
