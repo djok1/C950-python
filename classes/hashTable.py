@@ -28,8 +28,6 @@ class hashTbl:
             if(i > self.size):
                 print("error:Table overflow")
                         
-    def passtest(curentPackage):
-        curentPackage.id = 10
 
     def _print(self):
         i = 0

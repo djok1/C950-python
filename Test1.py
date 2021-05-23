@@ -4,7 +4,6 @@ c1 = package()
 print(c1.id)
 c1.id = 0
 print(c1.id)
-hashTbl.passtest(c1)
 print(c1.id)
 c0 = hashTbl(10)
 c0.add(c1)
