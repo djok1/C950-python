@@ -2,7 +2,7 @@ import classes.package
 class hashTbl:
     def __init__(self,size):
         self.size = size
-        self.map = [False] * self.size
+        self.packages = [False] * self.size
     
     def _get_hash(self, key):
         hash = key % self.size
@@ -10,19 +10,19 @@ class hashTbl:
     # ended up deciding to use -1 to indicate there has been a value as 1 == true returns true
     def add(self, curentPackage):
         curentPackage.hash = self._get_hash(curentPackage.id)
-        if(self.map[curentPackage.hash] == False or self.map[curentPackage.hash] == -1):
-            self.map[curentPackage.hash] = curentPackage
+        if(self.packages[curentPackage.hash] == False or self.packages[curentPackage.hash] == -1):
+            self.packages[curentPackage.hash] = curentPackage
         else:
             i = 1
             size = self.size - 1
             while i <= self.size:
                 if(i + curentPackage.hash> size):
-                    if(not(self.map[i - curentPackage.hash]) or self.map[i - curentPackage.hash] == -1):
-                        self.map[i - curentPackage.hash] = curentPackage
+                    if(not(self.packages[i - curentPackage.hash]) or self.packages[i - curentPackage.hash] == -1):
+                        self.packages[i - curentPackage.hash] = curentPackage
                         break
                 else:
-                    if(not(self.map[i + curentPackage.hash]) or self.map[i + curentPackage.hash] == -1):
-                        self.map[i + curentPackage.hash] = curentPackage
+                    if(not(self.packages[i + curentPackage.hash]) or self.packages[i + curentPackage.hash] == -1):
+                        self.packages[i + curentPackage.hash] = curentPackage
                         break
                 i += 1
             if(i > self.size):
@@ -33,18 +33,18 @@ class hashTbl:
         i = 0
         print('current package ids')
         while i < self.size:
-            if(not(self.map[i]) or self.map[i] == -1):
-                print(self.map[i])
+            if(not(self.packages[i]) or self.packages[i] == -1):
+                print(self.packages[i])
             else:
-                print(self.map[i].id)
+                print(self.packages[i].id)
             i += 1
     
     def HashRemove(self, id):
         location = self.searchById(id)
-        remove = self.map[location]
+        remove = self.packages[location]
         remove._print()
         print( " removed")
-        self.map[location] = -1
+        self.packages[location] = -1
         
         return remove
     
@@ -54,16 +54,16 @@ class hashTbl:
         size = self.size - 1
         while i <= self.size:
             if(i + idHash > size):
-                if(self.map[i - idHash].id==idHash):
+                if(self.packages[i - idHash].id==idHash):
                     return i - idHash
                     break
-                elif(not(self.map[i - idHash])):
+                elif(not(self.packages[i - idHash])):
                     break
             else:
-                if(self.map[i + idHash].id==idHash):
+                if(self.packages[i + idHash].id==idHash):
                     return i + idHash
                     break
-                elif(not(self.map[i - idHash])):
+                elif(not(self.packages[i - idHash])):
                     break
             
             i += 1
