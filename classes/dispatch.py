@@ -44,8 +44,7 @@ class dispatch:
                 packagelist.append(row)
             for row in packagelist:
                 print(row)
-        packageTable = hashTbl(len(packagelist))
-        packageTable = hashTbl(len(packagelist))
+        self.packageTable = hashTbl(len(packagelist))
         for row in packagelist:
             addressDic[row[1] + " " + row[4]].append(int(row[0]))
             tempPackage = package()
@@ -57,16 +56,15 @@ class dispatch:
             if "EOD" not in row[5]:
                 tempPackage.DeliveryDeadline = datetime.strptime(row[5], '%I:%M %p').time()
             else:
-                tempPackage.DeliveryDeadline = datetime.strptime("5:00 PM", '%I:%M %p').time()
-            if "start"  in row[5]:
-                tempPackage.status = self.Clock + " Arrived at hub"
-                self.scan()
-            if row[6] != '':
-                tempPackage.truck = row[6]
-            if row[7] != '':
-                tempPackage.boundList = row[7].split()
-            packageTable.add(tempPackage)
-        self.packageTable = packageTable
+                tempPackage.DeliveryDeadline = datetime.strptime("5:00 PM", '%I:%M %p').time()      
+            if row[8] != '':
+                tempPackage.truck = row[8]
+            if row[9] != '':
+                tempPackage.boundList = row[9].split()
+            self.packageTable.add(tempPackage)
+            if "Start"  in row[7]:
+                tempPackage.status = self.Clock.strftime('%I:%M %p') + " Arrived at hub" 
+                self.scan(tempPackage.id)
         self.addressDic = addressDic
         self.undeliveredPackages = self.packageTable.packages
     
@@ -76,9 +74,11 @@ class dispatch:
     def resetScanLog(self):
         with open('scanLog.txt', 'a') as log:
             log.truncate(0)
-    def scan(self, id):
-        with open('scanLog.txt', 'w') as log:
-            log.write(self.packageTable.searchById(id).status + ' ' + "Scanned at hub")
+
+    def scan(self, ID):
+        with open('scanLog.txt', 'a') as log:
+            currentPackage = self.packageTable.packages[self.packageTable.searchById(ID)]
+            log.write(str(currentPackage.id) + ' ' +  currentPackage.status + ' '+  + "Scanned at hub/n")
 
     def findNextAddress(self, currentAddress, Packages):
         distance = self.getDistance(currentAddress , Packages[0].Address + ' ' + Packages[0].Zip)
