@@ -52,15 +52,16 @@ class hashTbl:
         idHash = self._get_hash(id)
         i = 0
         size = self.size - 1
+
         while i <= self.size:
             if(i + idHash > size):
-                if(self.packages[i - idHash].id==idHash):
+                if(self.packages[i - idHash].id==id):
                     return i - idHash
                     break
                 elif(not(self.packages[i - idHash])):
                     break
             else:
-                if(self.packages[i + idHash].id==idHash):
+                if(self.packages[i + idHash].id==id):
                     return i + idHash
                     break
                 elif(not(self.packages[i - idHash])):

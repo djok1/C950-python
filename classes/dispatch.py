@@ -17,6 +17,7 @@ class dispatch:
     #track time per truck accumulated in a veriable held in truack to display status use loop in dispatch to check each truck 
     #address table with package ids and paclage count?? use address table to help loading function maybe a dictionary of dictionarys? 
     Clock = time(hour = 8)
+    Trucks = [truck(1),truck(2)]
 
     def loadAddresses(self):
         Distancelist = {}
@@ -65,26 +66,52 @@ class dispatch:
             if "Start"  in row[7]:
                 tempPackage.status = self.Clock.strftime('%I:%M %p') + " Arrived at hub" 
                 self.scan(tempPackage.id)
+                self.undeliveredPackages.Append(tempPackage)
         self.addressDic = addressDic
-        self.undeliveredPackages = self.packageTable.packages
+        self.BoundDel = False
+        self.PrioDel = False
+        self.TruckReq = False
+
     
     def getDistance(self,startLocation,endLocation):
-        return self.Distancelist[startLocation][endLocation]
+        
+        return next(iter(self.Distancelist[startLocation][endLocation]))
 
     def resetScanLog(self):
-        with open('scanLog.txt', 'a') as log:
-            log.truncate(0)
+        with open('scanLog.txt', 'w') as log:
+            log.truncate()
 
     def scan(self, ID):
         with open('scanLog.txt', 'a') as log:
             currentPackage = self.packageTable.packages[self.packageTable.searchById(ID)]
-            log.write(str(currentPackage.id) + ' ' +  currentPackage.status + ' '+  + "Scanned at hub/n")
+            log.write(str(currentPackage.id) + ' ' +  currentPackage.status + ' '  + "Scanned at hub\n")
 
-    def findNextAddress(self, currentAddress, Packages):
-        distance = self.getDistance(currentAddress , Packages[0].Address + ' ' + Packages[0].Zip)
-        nextAddress = Packages[0].Address + ' ' + Packages[0].Zip
+    def findNextPackage(self, currentAddress, Packages):
+        distance = self.getDistance(currentAddress , Packages[0].address + ' ' + Packages[0].Zip)
         for package in Packages:
-            if self.getDistance(currentAddress, package.Address + ' ' + package.Zip) < distance:
-                distance = self.getDistance(currentAddress, package.Address + ' ' + package.Zip)
-                nextAddress = package.Address + ' ' + package.Zip
-        return nextAddress
+            if (self.getDistance(currentAddress, package.address + ' ' + package.Zip) < distance):
+                distance = self.getDistance(currentAddress, package.address + ' ' + package.Zip)
+                nextPackage = package
+        return nextPackage
+
+    def loadTruck(self):
+        if not self.PrioDel or not self.BoundDel or not self.TruckReq:
+            self.loadSpecial()
+
+    def loadSpecial(self):
+        truckFull = False
+        for paackage in self.undeliveredPackages:
+            if(package.truck > 0):
+                if not self.Trucks[int(package.truck) - 1].truckFull():
+                    self.Trucks[int(package.truck) - 1].loadPackage(package)
+                    self.undeliveredPackages.remove(paackage)
+                else:
+                    truckFull = True
+            elif(len(package.boundList) > 0):
+                
+        if not truckFull:
+            self.TruckReq = True
+
+
+
+    
