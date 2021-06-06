@@ -4,6 +4,7 @@ from classes.hashTable import hashTbl
 from collections import defaultdict
 from datetime import time
 from datetime import datetime
+from classes.truck import truck
 import csv
 class dispatch:
     #assigment stratigy find furthest location from hub as farlocation and location fartest from farlocation as otherlocation then assgine trucks based off of 
@@ -18,6 +19,8 @@ class dispatch:
     #address table with package ids and paclage count?? use address table to help loading function maybe a dictionary of dictionarys? 
     Clock = time(hour = 8)
     Trucks = [truck(1),truck(2)]
+    EOD = datetime.strptime("5:00 PM", '%I:%M %p').time()  
+    undeliveredPackages = []
 
     def loadAddresses(self):
         Distancelist = {}
@@ -46,6 +49,7 @@ class dispatch:
             for row in packagelist:
                 print(row)
         self.packageTable = hashTbl(len(packagelist))
+        self.prioPackageList = hashTbl(len(packagelist))
         for row in packagelist:
             addressDic[row[1] + " " + row[4]].append(int(row[0]))
             tempPackage = package()
@@ -57,22 +61,23 @@ class dispatch:
             if "EOD" not in row[5]:
                 tempPackage.DeliveryDeadline = datetime.strptime(row[5], '%I:%M %p').time()
             else:
-                tempPackage.DeliveryDeadline = datetime.strptime("5:00 PM", '%I:%M %p').time()      
+                tempPackage.DeliveryDeadline = self.EOD      
             if row[8] != '':
-                tempPackage.truck = row[8]
+                tempPackage.truck = int(row[8])
             if row[9] != '':
                 tempPackage.boundList = row[9].split()
             self.packageTable.add(tempPackage)
             if "Start"  in row[7]:
                 tempPackage.status = self.Clock.strftime('%I:%M %p') + " Arrived at hub" 
                 self.scan(tempPackage.id)
-                self.undeliveredPackages.Append(tempPackage)
+                self.undeliveredPackages.append(tempPackage)
         self.addressDic = addressDic
         self.BoundDel = False
         self.PrioDel = False
         self.TruckReq = False
 
-    
+    def findPackage(self,package):
+        return self.packageTable.packages[self.packageTable.searchById(package.id)]
     def getDistance(self,startLocation,endLocation):
         
         return next(iter(self.Distancelist[startLocation][endLocation]))
@@ -87,31 +92,62 @@ class dispatch:
             log.write(str(currentPackage.id) + ' ' +  currentPackage.status + ' '  + "Scanned at hub\n")
 
     def findNextPackage(self, currentAddress, Packages):
-        distance = self.getDistance(currentAddress , Packages[0].address + ' ' + Packages[0].Zip)
+        distance = 100
+        nextPackage = Packages[0]
         for package in Packages:
-            if (self.getDistance(currentAddress, package.address + ' ' + package.Zip) < distance):
-                distance = self.getDistance(currentAddress, package.address + ' ' + package.Zip)
-                nextPackage = package
+            if package and (package != -1):
+                if (self.getDistance(currentAddress, package.address + ' ' + package.Zip) < distance):
+                    distance = self.getDistance(currentAddress, package.address + ' ' + package.Zip)
+                    nextPackage = package
         return nextPackage
 
     def loadTruck(self):
         if not self.PrioDel or not self.BoundDel or not self.TruckReq:
             self.loadSpecial()
-
+            self.loadPrio()
     def loadSpecial(self):
-        truckFull = False
-        for paackage in self.undeliveredPackages:
+        truckFull = [False,False]
+        for package in list(self.undeliveredPackages):
             if(package.truck > 0):
                 if not self.Trucks[int(package.truck) - 1].truckFull():
-                    self.Trucks[int(package.truck) - 1].loadPackage(package)
-                    self.undeliveredPackages.remove(paackage)
+                    self.Trucks[int(package.truck) - 1].loadPackage(self.findPackage(package))
+                    self.undeliveredPackages.remove(package)
                 else:
-                    truckFull = True
-            elif(len(package.boundList) > 0):
-                
-        if not truckFull:
+                    truckFull[0] = True
+            elif(len(package.boundList) > 0 and "hub" in package.status):
+                for truck in self.Trucks:
+                    if(truck.getRemainingSpace() >= len(package.boundList)):
+                        for item in package.boundList:
+                            itemPackage = self.packageTable.packages[self.packageTable.searchById(item)]
+                            truck.loadPackage(itemPackage)
+                            self.undeliveredPackages.remove(itemPackage)
+                            truckFull[1] = False
+                        break
+                    else:
+                        truckFull[1] = True
+            elif(package.DeliveryDeadline < self.EOD):
+                self.prioPackageList.add(package)
+        if not truckFull[0]:
             self.TruckReq = True
+        if not truckFull[1]:
+            self.BoundDel = True
 
-
-
-    
+    #to be implemented make a prio package load after sorting onto trucks useing find next package
+    def loadPrio(self):
+        trucksFull = False
+        for truck in self.Trucks:
+            truck.packageSort(self)
+        for truck in self.Trucks:
+            trucksFull = False
+            while not truck.truckFull():
+                tempPackage = self.findNextPackage(truck.currentAddress,self.prioPackageList.packages)
+                if tempPackage and (tempPackage != -1) and "hub" in tempPackage.status:
+                    self.prioPackageList.HashRemove(tempPackage.id)
+                    truck.loadPackage(tempPackage)
+                    truck.currentAddress = tempPackage.address + ' '
+                    truck.currentAddress += tempPackage.Zip
+                else:
+                    break    
+            trucksFull = True
+        if not trucksFull:
+            self.PrioDel = True

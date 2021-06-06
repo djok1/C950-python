@@ -34,3 +34,18 @@
 38 08:00 AM Arrived at hub Scanned at hub
 39 08:00 AM Arrived at hub Scanned at hub
 40 08:00 AM Arrived at hub Scanned at hub
+3 08:00 AM Loaded on Truck 2 Scanned by driver
+13 08:00 AM Loaded on Truck 1 Scanned by driver
+14 08:00 AM Loaded on Truck 1 Scanned by driver
+15 08:00 AM Loaded on Truck 1 Scanned by driver
+16 08:00 AM Loaded on Truck 1 Scanned by driver
+19 08:00 AM Loaded on Truck 1 Scanned by driver
+20 08:00 AM Loaded on Truck 1 Scanned by driver
+18 08:00 AM Loaded on Truck 2 Scanned by driver
+36 08:00 AM Loaded on Truck 2 Scanned by driver
+38 08:00 AM Loaded on Truck 2 Scanned by driver
+37 08:00 AM Loaded on Truck 1 Scanned by driver
+30 08:00 AM Loaded on Truck 1 Scanned by driver
+1 08:00 AM Loaded on Truck 1 Scanned by driver
+40 08:00 AM Loaded on Truck 1 Scanned by driver
+31 08:00 AM Loaded on Truck 2 Scanned by driver

@@ -5,7 +5,7 @@ class hashTbl:
         self.packages = [False] * self.size
     
     def _get_hash(self, key):
-        hash = key % self.size
+        hash = int(key) % self.size
         return hash
     # ended up deciding to use -1 to indicate there has been a value as 1 == true returns true
     def add(self, curentPackage):
@@ -42,26 +42,25 @@ class hashTbl:
     def HashRemove(self, id):
         location = self.searchById(id)
         remove = self.packages[location]
-        remove._print()
-        print( " removed")
         self.packages[location] = -1
         
         return remove
     
     def searchById(self, id):
+        id = int(id)
         idHash = self._get_hash(id)
         i = 0
         size = self.size - 1
 
         while i <= self.size:
             if(i + idHash > size):
-                if(self.packages[i - idHash].id==id):
+                if(self.packages[i - idHash] != -1 and self.packages[i - idHash].id==id):
                     return i - idHash
                     break
                 elif(not(self.packages[i - idHash])):
                     break
             else:
-                if(self.packages[i + idHash].id==id):
+                if(self.packages[i + idHash] != -1 and self.packages[i + idHash].id==id):
                     return i + idHash
                     break
                 elif(not(self.packages[i - idHash])):

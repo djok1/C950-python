@@ -8,6 +8,8 @@ class package:
         self.DeliveryDeadline = None
         self.SpecialNotes = None
         self.status = "unknown"
+        self.boundList = []
+        self.truck = -1
     def _print(self):
         print(self.id, end='')
 
