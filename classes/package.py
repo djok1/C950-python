@@ -1,3 +1,6 @@
+from os import set_inheritable
+
+
 class package:
     def __init__(self):
         self.id = -1
@@ -13,4 +16,7 @@ class package:
     def _print(self):
         print(self.id, end='')
 
-        
+    def getShippingAddress(self):
+        shippingaddress = self.address + ' '
+        shippingaddress += self.Zip 
+        return shippingaddress

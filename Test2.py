@@ -25,4 +25,11 @@ for truck in Dispatch.Trucks:
     for package in truck.packages:
         if package != None:
             print(str(package.id) + ' ' + package.status + ' ' + package.address + ' ' + package.Zip)
+for truck in Dispatch.Trucks:
+    truck.deliverLoad(Dispatch)
+for truck in Dispatch.Trucks:
+    print("truck " + str(truck.id))
+    for package in truck.packages:
+        if package != None:
+            print(str(package.id) + ' ' + package.status + ' ' + package.address + ' ' + package.Zip)
 input()

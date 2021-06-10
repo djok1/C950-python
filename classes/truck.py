@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import datetime, time, timedelta
 
 class truck:
     size = 16
@@ -43,3 +43,31 @@ class truck:
         self.packages = tempList
     def getRemainingSpace(self):
         return self.size - (self.load + 1) 
+    def getDistanceAsTime(self, distance):
+        minute = int(distance) 
+        second = distance - minute
+        second = int(second*1000*.06)
+        return timedelta(minutes=minute,seconds=second)
+    def setClock(self,newTime):
+        hours = int(newTime/3600)
+        minutes = int((newTime%3600)/60)
+        seconds = (newTime%3600)%60
+        self.Clock = time(hour=hours ,minute=minutes,second=seconds)
+    def updateTime(self,distance):
+        distance = self.getDistanceAsTime(distance)
+        tempTime = timedelta(hours=self.Clock.hour, minutes=self.Clock.minute,seconds = self.Clock.second) + distance
+        self.setClock(tempTime.seconds)
+    def deliverLoad(self,dispatch):
+        self.currentAddress = "HUB"
+        for package in self.packages:
+            if(package != None and "Loaded" in package.status):
+                distance = dispatch.getDistance(self.currentAddress,package.getShippingAddress())
+                self.updateTime(distance)
+                self.currentAddress = package.getShippingAddress()
+                package.status = self.Clock.strftime('%I:%M %p') + " Delivered by truck " + str(self.id)
+                self.scan(package)
+                self.popById(package.id)
+        distance = dispatch.getDistance(self.currentAddress,"HUB")
+        self.updateTime(distance)
+        self.currentAddress = "HUB"
+        self.load = 0

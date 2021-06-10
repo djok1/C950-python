@@ -105,6 +105,12 @@ class dispatch:
         if not self.PrioDel or not self.BoundDel or not self.TruckReq:
             self.loadSpecial()
             self.loadPrio()
+        for truck in self.Trucks:
+            while not truck.truckFull():
+                tempPackage  = self.findNextPackage(truck.currentAddress,self.undeliveredPackages)
+                if"hub" in tempPackage.status:
+                    truck.loadPackage(tempPackage)
+                self.undeliveredPackages.remove(tempPackage)
     def loadSpecial(self):
         truckFull = [False,False]
         for package in list(self.undeliveredPackages):
@@ -132,7 +138,6 @@ class dispatch:
         if not truckFull[1]:
             self.BoundDel = True
 
-    #to be implemented make a prio package load after sorting onto trucks useing find next package
     def loadPrio(self):
         trucksFull = False
         for truck in self.Trucks:
