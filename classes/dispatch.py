@@ -93,12 +93,14 @@ class dispatch:
 
     def findNextPackage(self, currentAddress, Packages):
         distance = 100
-        nextPackage = Packages[0]
+        nextPackage = None
         for package in Packages:
             if package and (package != -1):
                 if (self.getDistance(currentAddress, package.address + ' ' + package.Zip) < distance):
                     distance = self.getDistance(currentAddress, package.address + ' ' + package.Zip)
                     nextPackage = package
+        if nextPackage == None:
+            print("here")
         return nextPackage
 
     def loadTruck(self):
@@ -106,7 +108,7 @@ class dispatch:
             self.loadSpecial()
             self.loadPrio()
         for truck in self.Trucks:
-            while not truck.truckFull():
+            while not truck.truckFull() and truck.returned and len(self.undeliveredPackages) > 0:
                 tempPackage  = self.findNextPackage(truck.currentAddress,self.undeliveredPackages)
                 if"hub" in tempPackage.status:
                     truck.loadPackage(tempPackage)
@@ -156,3 +158,20 @@ class dispatch:
             trucksFull = True
         if not trucksFull:
             self.PrioDel = True
+
+    def checkReturned(self):
+        selectedTruck = self.Trucks[0]
+        for truck in self.Trucks:
+            if truck.Clock < selectedTruck.Clock:
+                selectedTruck = truck
+        selectedTruck.returned = True
+
+    def wrongAddress(self, id):
+        wrongAddresPackage =  self.packageTable.packages[self.packageTable.searchById(id)]
+        self.undeliveredPackages.remove(wrongAddresPackage)
+
+    def updateAddress(self, id, address, zip):
+        wrongAddresPackage =  self.packageTable.packages[self.packageTable.searchById(id)]
+        wrongAddresPackage.address = address
+        wrongAddresPackage.zip = zip
+        self.undeliveredPackages.append(wrongAddresPackage)
