@@ -32,4 +32,19 @@ for truck in Dispatch.Trucks:
     for package in truck.packages:
         if package != None:
             print(str(package.id) + ' ' + package.status + ' ' + package.address + ' ' + package.Zip)
+Dispatch.checkReturned()
+Dispatch.loadTruck()
+for truck in Dispatch.Trucks:
+    if truck.returned:
+        truck.deliverLoad(Dispatch)
+Dispatch.checkReturned()
+Dispatch.loadTruck()
+for truck in Dispatch.Trucks:
+    if truck.returned:
+        truck.deliverLoad(Dispatch)
+Dispatch.checkReturned()
+Dispatch.loadTruck()
+for truck in Dispatch.Trucks:
+    if truck.returned:
+        truck.deliverLoad(Dispatch)
 input()

@@ -8,6 +8,7 @@ class truck:
         self.packages = [None] * self.size
         self.load = 0
         self.currentAddress = "HUB"
+        self.returned = True
 
     def scan(self, currentPackage):
         with open('scanLog.txt', 'a') as log:
@@ -71,3 +72,4 @@ class truck:
         self.updateTime(distance)
         self.currentAddress = "HUB"
         self.load = 0
+        self.returned = False

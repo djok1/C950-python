@@ -98,3 +98,11 @@
 39 09:20 AM Delivered by truck 2 Scanned by driver
 26 09:32 AM Delivered by truck 2 Scanned by driver
 5 09:41 AM Delivered by truck 2 Scanned by driver
+34 08:44 AM Loaded on Truck 1 Scanned by driver
+22 08:44 AM Loaded on Truck 1 Scanned by driver
+8 08:44 AM Loaded on Truck 1 Scanned by driver
+9 08:44 AM Loaded on Truck 1 Scanned by driver
+34 08:47 AM Delivered by truck 1 Scanned by driver
+22 08:52 AM Delivered by truck 1 Scanned by driver
+8 09:06 AM Delivered by truck 1 Scanned by driver
+9 09:06 AM Delivered by truck 1 Scanned by driver
