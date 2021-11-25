@@ -3,6 +3,7 @@
 3 08:00 AM Arrived at hub Scanned at hub
 4 08:00 AM Arrived at hub Scanned at hub
 5 08:00 AM Arrived at hub Scanned at hub
+6 08:00 AM On way to Hub Scanned By Unknown
 7 08:00 AM Arrived at hub Scanned at hub
 8 08:00 AM Arrived at hub Scanned at hub
 9 08:00 AM Arrived at hub Scanned at hub
@@ -21,11 +22,14 @@
 22 08:00 AM Arrived at hub Scanned at hub
 23 08:00 AM Arrived at hub Scanned at hub
 24 08:00 AM Arrived at hub Scanned at hub
+25 08:00 AM On way to Hub Scanned By Unknown
 26 08:00 AM Arrived at hub Scanned at hub
 27 08:00 AM Arrived at hub Scanned at hub
+28 08:00 AM On way to Hub Scanned By Unknown
 29 08:00 AM Arrived at hub Scanned at hub
 30 08:00 AM Arrived at hub Scanned at hub
 31 08:00 AM Arrived at hub Scanned at hub
+32 08:00 AM On way to Hub Scanned By Unknown
 33 08:00 AM Arrived at hub Scanned at hub
 34 08:00 AM Arrived at hub Scanned at hub
 35 08:00 AM Arrived at hub Scanned at hub
@@ -34,75 +38,91 @@
 38 08:00 AM Arrived at hub Scanned at hub
 39 08:00 AM Arrived at hub Scanned at hub
 40 08:00 AM Arrived at hub Scanned at hub
-3 08:00 AM Loaded on Truck 2 Scanned by driver
-13 08:00 AM Loaded on Truck 1 Scanned by driver
-14 08:00 AM Loaded on Truck 1 Scanned by driver
-15 08:00 AM Loaded on Truck 1 Scanned by driver
-16 08:00 AM Loaded on Truck 1 Scanned by driver
-19 08:00 AM Loaded on Truck 1 Scanned by driver
-20 08:00 AM Loaded on Truck 1 Scanned by driver
-18 08:00 AM Loaded on Truck 2 Scanned by driver
-36 08:00 AM Loaded on Truck 2 Scanned by driver
-38 08:00 AM Loaded on Truck 2 Scanned by driver
-37 08:00 AM Loaded on Truck 1 Scanned by driver
-30 08:00 AM Loaded on Truck 1 Scanned by driver
-1 08:00 AM Loaded on Truck 1 Scanned by driver
+13 08:00 AM Loaded on Truck 2 Scanned by driver
+14 08:00 AM Loaded on Truck 2 Scanned by driver
+15 08:00 AM Loaded on Truck 2 Scanned by driver
+16 08:00 AM Loaded on Truck 2 Scanned by driver
+19 08:00 AM Loaded on Truck 2 Scanned by driver
+20 08:00 AM Loaded on Truck 2 Scanned by driver
 40 08:00 AM Loaded on Truck 1 Scanned by driver
-31 08:00 AM Loaded on Truck 2 Scanned by driver
-4 08:00 AM Loaded on Truck 1 Scanned by driver
-21 08:00 AM Loaded on Truck 1 Scanned by driver
+1 08:00 AM Loaded on Truck 1 Scanned by driver
+29 08:00 AM Loaded on Truck 1 Scanned by driver
+30 08:00 AM Loaded on Truck 1 Scanned by driver
+31 08:00 AM Loaded on Truck 1 Scanned by driver
+34 08:00 AM Loaded on Truck 1 Scanned by driver
+37 08:00 AM Loaded on Truck 1 Scanned by driver
+8 08:00 AM Loaded on Truck 1 Scanned by driver
+5 08:00 AM Loaded on Truck 1 Scanned by driver
+10 08:00 AM Loaded on Truck 1 Scanned by driver
+7 08:00 AM Loaded on Truck 1 Scanned by driver
 2 08:00 AM Loaded on Truck 1 Scanned by driver
 33 08:00 AM Loaded on Truck 1 Scanned by driver
-17 08:00 AM Loaded on Truck 1 Scanned by driver
-7 08:00 AM Loaded on Truck 1 Scanned by driver
-24 08:00 AM Loaded on Truck 2 Scanned by driver
+4 08:00 AM Loaded on Truck 1 Scanned by driver
+21 08:00 AM Loaded on Truck 1 Scanned by driver
+24 08:00 AM Loaded on Truck 1 Scanned by driver
+39 08:00 AM Loaded on Truck 2 Scanned by driver
 27 08:00 AM Loaded on Truck 2 Scanned by driver
 35 08:00 AM Loaded on Truck 2 Scanned by driver
-11 08:00 AM Loaded on Truck 2 Scanned by driver
+36 08:00 AM Loaded on Truck 2 Scanned by driver
 12 08:00 AM Loaded on Truck 2 Scanned by driver
+17 08:00 AM Loaded on Truck 2 Scanned by driver
+18 08:00 AM Loaded on Truck 2 Scanned by driver
 23 08:00 AM Loaded on Truck 2 Scanned by driver
-10 08:00 AM Loaded on Truck 2 Scanned by driver
-29 08:00 AM Loaded on Truck 2 Scanned by driver
-39 08:00 AM Loaded on Truck 2 Scanned by driver
+11 08:00 AM Loaded on Truck 2 Scanned by driver
 26 08:00 AM Loaded on Truck 2 Scanned by driver
-5 08:00 AM Loaded on Truck 2 Scanned by driver
-14 08:01 AM Delivered by truck 1 Scanned by driver
-15 08:03 AM Delivered by truck 1 Scanned by driver
-16 08:03 AM Delivered by truck 1 Scanned by driver
-20 08:08 AM Delivered by truck 1 Scanned by driver
-19 08:09 AM Delivered by truck 1 Scanned by driver
-13 08:17 AM Delivered by truck 1 Scanned by driver
-37 08:20 AM Delivered by truck 1 Scanned by driver
-30 08:21 AM Delivered by truck 1 Scanned by driver
-1 08:25 AM Delivered by truck 1 Scanned by driver
-40 08:27 AM Delivered by truck 1 Scanned by driver
-4 08:27 AM Delivered by truck 1 Scanned by driver
-21 08:28 AM Delivered by truck 1 Scanned by driver
-2 08:30 AM Delivered by truck 1 Scanned by driver
-33 08:30 AM Delivered by truck 1 Scanned by driver
-17 08:34 AM Delivered by truck 1 Scanned by driver
-7 08:40 AM Delivered by truck 1 Scanned by driver
-38 08:06 AM Delivered by truck 2 Scanned by driver
-3 08:07 AM Delivered by truck 2 Scanned by driver
-36 08:15 AM Delivered by truck 2 Scanned by driver
-18 08:19 AM Delivered by truck 2 Scanned by driver
-31 08:23 AM Delivered by truck 2 Scanned by driver
-24 08:27 AM Delivered by truck 2 Scanned by driver
-27 08:36 AM Delivered by truck 2 Scanned by driver
-35 08:36 AM Delivered by truck 2 Scanned by driver
-11 08:43 AM Delivered by truck 2 Scanned by driver
-12 08:51 AM Delivered by truck 2 Scanned by driver
-23 08:58 AM Delivered by truck 2 Scanned by driver
-10 09:09 AM Delivered by truck 2 Scanned by driver
-29 09:12 AM Delivered by truck 2 Scanned by driver
-39 09:20 AM Delivered by truck 2 Scanned by driver
-26 09:32 AM Delivered by truck 2 Scanned by driver
-5 09:41 AM Delivered by truck 2 Scanned by driver
-34 08:44 AM Loaded on Truck 1 Scanned by driver
-22 08:44 AM Loaded on Truck 1 Scanned by driver
-8 08:44 AM Loaded on Truck 1 Scanned by driver
-9 08:44 AM Loaded on Truck 1 Scanned by driver
-34 08:47 AM Delivered by truck 1 Scanned by driver
-22 08:52 AM Delivered by truck 1 Scanned by driver
-8 09:06 AM Delivered by truck 1 Scanned by driver
-9 09:06 AM Delivered by truck 1 Scanned by driver
+34 08:11 AM Delivered by truck 1 Scanned by driver
+29 08:27 AM Delivered by truck 1 Scanned by driver
+1 08:37 AM Delivered by truck 1 Scanned by driver
+40 08:40 AM Delivered by truck 1 Scanned by driver
+31 08:46 AM Delivered by truck 1 Scanned by driver
+37 09:07 AM Delivered by truck 1 Scanned by driver
+30 09:11 AM Delivered by truck 1 Scanned by driver
+8 09:11 AM Delivered by truck 1 Scanned by driver
+5 09:14 AM Delivered by truck 1 Scanned by driver
+10 09:20 AM Delivered by truck 1 Scanned by driver
+7 09:29 AM Delivered by truck 1 Scanned by driver
+2 09:35 AM Delivered by truck 1 Scanned by driver
+20 08:06 AM Delivered by truck 2 Scanned by driver
+19 08:08 AM Delivered by truck 2 Scanned by driver
+14 08:18 AM Delivered by truck 2 Scanned by driver
+15 08:25 AM Delivered by truck 2 Scanned by driver
+16 08:25 AM Delivered by truck 2 Scanned by driver
+13 09:07 AM Delivered by truck 2 Scanned by driver
+39 09:07 AM Delivered by truck 2 Scanned by driver
+27 09:13 AM Delivered by truck 2 Scanned by driver
+35 09:13 AM Delivered by truck 2 Scanned by driver
+36 09:22 AM Delivered by truck 2 Scanned by driver
+12 09:32 AM Delivered by truck 2 Scanned by driver
+17 09:54 AM Delivered by truck 2 Scanned by driver
+18 10:08 AM Delivered by truck 2 Scanned by driver
+23 10:10 AM Delivered by truck 2 Scanned by driver
+11 10:11 AM Delivered by truck 2 Scanned by driver
+26 10:28 AM Delivered by truck 2 Scanned by driver
+6 09:44 AM Arrived at hub Scanned at hub
+25 09:44 AM Arrived at hub Scanned at hub
+28 09:44 AM Arrived at hub Scanned at hub
+32 09:44 AM Arrived at hub Scanned at hub
+6 09:44 AM Loaded on Truck 1 Scanned by driver
+25 09:44 AM Loaded on Truck 1 Scanned by driver
+32 09:44 AM Loaded on Truck 1 Scanned by driver
+21 09:44 AM Loaded on Truck 1 Scanned by driver
+28 09:44 AM Loaded on Truck 1 Scanned by driver
+4 09:44 AM Loaded on Truck 1 Scanned by driver
+33 09:44 AM Loaded on Truck 1 Scanned by driver
+24 09:44 AM Loaded on Truck 1 Scanned by driver
+22 09:44 AM Loaded on Truck 1 Scanned by driver
+25 09:52 AM Delivered by truck 1 Scanned by driver
+6 10:16 AM Delivered by truck 1 Scanned by driver
+32 10:21 AM Delivered by truck 1 Scanned by driver
+21 10:26 AM Delivered by truck 1 Scanned by driver
+28 10:30 AM Delivered by truck 1 Scanned by driver
+4 10:33 AM Delivered by truck 1 Scanned by driver
+33 10:39 AM Delivered by truck 1 Scanned by driver
+24 10:54 AM Delivered by truck 1 Scanned by driver
+22 11:04 AM Delivered by truck 1 Scanned by driver
+9 10:36 AM Loaded on Truck 2 Scanned by driver
+38 10:36 AM Loaded on Truck 2 Scanned by driver
+3 10:36 AM Loaded on Truck 2 Scanned by driver
+9 10:57 AM Delivered by truck 2 Scanned by driver
+38 10:57 AM Delivered by truck 2 Scanned by driver
+3 11:01 AM Delivered by truck 2 Scanned by driver
